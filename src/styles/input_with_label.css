@@ -1,11 +1,22 @@
-.input-with-label{
+.gray_input input {
+    background-color: #EBEBEB !important;
+    box-shadow: none !important;
+}
+
+.gray_input .form-select {
+    background-color: #ebebeb;
+    border-color: #ebebeb;
+    box-shadow: none !important;
+}
+
+.input-with-label {
     margin: 0;
     margin-right: 10px;
     padding: 0;
     width: 100%;
 }
 
-.input-with-label input[type=text]{
+.input-with-label input[type=text] {
     margin: 0px;
     padding: 10px 10px;
     border: 2px solid #EBEBEB;

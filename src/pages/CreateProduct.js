@@ -23,6 +23,25 @@ import CloseIcon from "@mui/icons-material/Close";
 // import Typography from '@mui/material/Typography';
 import * as Constants from "../Constants";
 import { useNavigate } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
+  FormGroup,
+  Input,
+  Label,
+  Nav,
+  NavItem,
+  NavLink,
+  Row,
+} from "reactstrap";
+import InputOption from "../components/Input/InputOption";
+import DateTimePicker from "../components/Input/DateTimePicker";
+import CategoryOption from "../components/Input/CategoryOption";
+import ReactSelect from "../components/Input/ReactSelect";
+import CommonBreadcramb from "../components/Layout/CommonBreadcramb";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -256,7 +275,7 @@ export const CreateProduct = () => {
   //     "https://i.imgur.com/xUw3JnK.jpg",
   //     "https://i.imgur.com/CEnPxDo.jpg"
   // ]);
-  console.log("arr",arr)
+  console.log("arr", arr);
 
   const addInput = () => {
     setArr((s) => {
@@ -309,13 +328,13 @@ export const CreateProduct = () => {
     });
   };
 
-// const [imageUrls, setImageUrls] = useState([]);
+  // const [imageUrls, setImageUrls] = useState([]);
 
-// const handleLinkChange = (event, index) => {
-//     const updatedUrls = [...imageUrls];
-//     updatedUrls[index] = event.target.value;
-//     setImageUrls(updatedUrls);
-// };
+  // const handleLinkChange = (event, index) => {
+  //     const updatedUrls = [...imageUrls];
+  //     updatedUrls[index] = event.target.value;
+  //     setImageUrls(updatedUrls);
+  // };
   useEffect(() => {
     let config = {
       method: "get",
@@ -617,7 +636,7 @@ export const CreateProduct = () => {
       createProductRequestData.push({
         sku_code: sku_code,
         name: name,
-        images: arr.map((item)=>item.value),
+        images: arr.map((item) => item.value),
         category_id: category_id,
         category: category,
         sub_category_id: sub_category_id,
@@ -755,54 +774,30 @@ export const CreateProduct = () => {
 
   return (
     <>
-      <div className="create-product">
-        <Navbar />
-        <div className="create-product-body">
-          <SearchComponent />
-          <div className="items-spaced-between">
-            <p className="title">Create Product</p>
-            <input
-              type="file"
-              name="file"
-              className="upload-excel-btn"
-              id="inputGroupFile"
-              required
-              onChange={handleImport}
-            />
-            {/* <div className="upload-excel-btn" onClick={handleImport}>Upload Excel</div> */}
-          </div>
-          {/* title and description */}
-          <div className="form">
-            <div className="title-description">
+      <CommonBreadcramb heading={"Create Product"} />
+      <Row>
+        <Col sm={8}>
+          <Card className="p-3 border-0 mb-3 gray_input">
+            <p>SKU Code</p>
             <InputWithLabel
-                heading="SKU Code"
-                placeholder="Enter Sku code"
-                onChange={handleSkuChange}
-                value={sku_code}
-              />
-              <InputWithLabel
-                heading="Product Title"
-                placeholder="Enter product name"
-                onChange={handleNameChange}
-                value={name}
-              />
-              <div className="checkbox-with-label">
-                <input
-                  type="checkbox"
-                  name="prescription_required"
-                  id="prescription_required"
-                  onChange={handlePrescriptionChange}
-                  value={prescription_required}
-                />
-                <label htmlFor="prescription_required">
-                  Prescription Required
-                </label>
-              </div>
-              <p className="heading">Description</p>
+              placeholder="Enter Sku code"
+              onChange={handleSkuChange}
+              value={sku_code}
+            />
+            <p>Product Title</p>
+            <InputWithLabel
+              placeholder="Enter product name"
+              onChange={handleNameChange}
+              value={name}
+            />
+
+            <FormGroup>
+              <p className="heading">Product Description</p>
               <CKEditor
                 editor={ClassicEditor}
                 data={description}
                 config={{
+                  height: "400px",
                   placeholder: "Enter your text here...",
                 }}
                 onReady={(editor) => {
@@ -821,111 +816,644 @@ export const CreateProduct = () => {
                   console.log("Focus.", editor);
                 }}
               />
-              <label htmlFor="category">Category</label>
-              <select onChange={handleCategoryChange}>
-                {categories.map((item, i) => {
-                  // console.log(item.id);
-                  return (
-                    <option id={i} value={[item.title, item.id]}>
-                      {item.title}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-          </div>
-          {/* images */}
-          <div className="form">
-            <div className="title-description">
-              <p className="heading">Images</p>
-              {arr.map((item, i) => {
-                return (
+            </FormGroup>
+          </Card>
+          <Card className="p-0 border-0 mb-3 gray_input">
+            <CardHeader className="py-3 bg-white" tag={"h5"}>
+              Product Gallery
+            </CardHeader>
+            <CardBody>
+              <FormGroup>
+                <p className="mb-0">Product Image</p>
+                <small className="text-muted d-block   mb-2">
+                  Add Product main Image.
+                </small>
+                <Input id="exampleFile" name="file" type="file" />
+              </FormGroup>
+              <FormGroup>
+                <p className="mb-0">Product Gallery</p>
+                <small className="text-muted d-block   mb-3">
+                  Add Product Gallery Images.
+                </small>
+                <div class="dropzone">
+                  <label for="characterAvtar" class="dropzone-container mb-2">
+                    <div class="file-icon">
+                      <svg
+                        width="52"
+                        height="46"
+                        viewBox="0 0 52 46"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M25.8185 24.3477L35.5774 34.1043L32.3229 37.3588L28.1185 33.1544V45.9999H23.5185V33.1498L19.3141 37.3588L16.0596 34.1043L25.8185 24.3477ZM25.8189 5.17772e-08C33.9935 0.000387196 40.8708 6.126 41.8131 14.2462C47.7194 15.8569 51.6247 21.4659 51.0858 27.5641C50.5469 33.6623 45.7184 38.4995 39.6212 39.0494L39.6189 34.5C39.6262 26.9735 33.602 20.8295 26.0772 20.6885C18.5525 20.5476 12.3025 26.4619 12.028 33.9829L12.0189 34.5V39.0494C5.92131 38.5003 1.09209 33.6635 0.552603 27.5651C0.0131129 21.4667 3.91821 15.8572 9.82465 14.2462C10.766 6.12549 17.6438 -0.000650306 25.8189 5.17772e-08H25.8189Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                    <div class="dropzone-title fw-semibold">
+                      Drop files here or click to upload.
+                    </div>
+                  </label>
                   <input
-                    type="text"
-                    id={i}
-                    placeholder={"Enter product image url " + (i + 1)}
-                    onChange={handleLinkChange}
-                    value={item.value}
-                    style={{ color: "black" }}
+                    id="characterAvtar"
+                    name="characterAvtar"
+                    type="file"
+                    accept="image/*"
+                    class="form-control"
                   />
-                );
-              })}
-              
-              <p className="add-new-url" onClick={addInput}>
-                Add
-              </p>
-            </div>
-          </div>
-          {/* manufacturing and cost */}
-          <div className="form">
-            <div className="title-description">
+                </div>
+              </FormGroup>
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 mb-3 gray_input general_tab">
+            <CardHeader className="p-0 bg-white ">
+              <Nav tabs>
+                <NavItem>
+                  <NavLink
+                    className="active"
+                    onClick={function noRefCheck() { }}
+                  >
+                    General Info
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="" onClick={function noRefCheck() { }}>
+                    Meta Data
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </CardHeader>
+            <CardBody>
               <InputWithLabel
                 heading="Manufacturing Company"
                 placeholder="Enter product manufacturer company name"
                 onChange={handleManufacturingCompanyChange}
                 value={manufacturing_company}
               />
-              <div className="product-price-related-details">
-                <InputWithLabel
-                  heading="MRP in INR"
-                  placeholder="Eg: 45.10 or 45.00"
-                  onChange={handleMrpChange}
-                  value={mrp}
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Manufacturer Brand"
+                    placeholder="Enter manufacturer brand"
+                    onChange={handleManufacturingCompanyChange}
+                    value={manufacturing_company}
+                  />
+                </Col>
+                <Col md={3}>
+                  <InputWithLabel
+                    heading="Price"
+                    placeholder=""
+                    onChange={handlePriceChange}
+                    value={price}
+                  />
+                </Col>
+                <Col md={3}>
+                  <InputWithLabel
+                    heading="Discount"
+                    placeholder="Eg: 20.50 or 20.00"
+                    onChange={handleDiscountChange}
+                    value={discount}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardBody>
+              <Row>
+                <Col md={6}>
+                  <p>Salt Composition</p>
+                  <InputWithLabel
+                    placeholder="Enter Salt Composition"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+                <Col md={6}>
+                  <p>Medicine Type</p>
+                  <InputWithLabel
+                    placeholder="Enter Medicine Type"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <p>Label</p>
+                  <InputWithLabel
+                    placeholder="Label"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+                <Col md={6}>
+                  <p>Introduction</p>
+                  <InputWithLabel
+                    placeholder="Introduction"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <p>Ingredients</p>
+                  <InputWithLabel
+                    placeholder="Ingredients"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+                <Col md={6}>
+                  <p>Benefits</p>
+                  <InputWithLabel
+                    placeholder="Benefits"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <p>Safety Advice</p>
+                  <InputWithLabel
+                    placeholder="Safety Advice"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+                <Col md={6}>
+                  <p>If Miss</p>
+                  <InputWithLabel
+                    placeholder="If Miss"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>
+                <Col md={3}>
+                  <InputWithLabel
+                    heading="Packaging"
+                    placeholder="Eg: 1 kg powder"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={3}>
+                  <InputWithLabel
+                    heading="MRP in INR"
+                    placeholder="Eg: 45.10 or 45.00"
+                    onChange={handleMrpChange}
+                    value={mrp}
+                  />
+                </Col>{" "}
+                <Col md={3}>
+                  <p>GST</p>
+                  <InputWithLabel
+                    placeholder="GST"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+                </Col>{" "}
+
+                <Col md={3} >
+                  <p>Stock</p>
+                  <InputWithLabel
+                    placeholder="Enter Stock Details"
+                    onChange={handleSkuChange}
+                    value={sku_code}
+                  />
+
+                </Col>
+              </Row>
+              <FormGroup check inline>
+                <Input
+                  type="checkbox"
+                  name="prescription_required"
+                  id="prescription_required"
+                  onChange={handlePrescriptionChange}
+                  value={prescription_required}
                 />
-                <InputWithLabel
-                  heading="Discount percentage"
-                  placeholder="Eg: 20.50 or 20.00"
-                  onChange={handleDiscountChange}
-                  value={discount}
-                />
-                <InputWithLabel
-                  heading="Price"
-                  placeholder=""
-                  onChange={handlePriceChange}
-                  value={price}
-                />
-              </div>
-              <div className="product-price-related-details">
-                <InputWithLabel
-                  heading="Packaging"
-                  placeholder="Eg: 1 kg powder"
-                  onChange={handlePackagingChange}
-                  value={packaging}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="form">
-            <div className="title-description">
-              <p className="heading">How to Uses</p>
-              <CKEditor
-                editor={ClassicEditor}
-                data={how_to_use}
-                config={{
-                  placeholder: "Enter your text here...",
-                }}
-                onReady={(editor) => {
-                  // You can store the "editor" and use when it is needed.
-                  console.log("Editor is ready to use!", editor);
-                }}
-                onChange={(event, editor) => {
-                  const data = editor.getData();
-                  // console.log({ event, editor, data });
-                  setHowToUse(data);
-                }}
-                onBlur={(event, editor) => {
-                  console.log("Blur.", editor);
-                }}
-                onFocus={(event, editor) => {
-                  console.log("Focus.", editor);
-                }}
+                <Label check htmlFor="prescription_required">
+                  Prescription Required
+                </Label>
+              </FormGroup>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Primary Use"
+                    placeholder="Primary Use"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Salt Synonyms"
+                    placeholder="Salt Synonyms"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Storage"
+                    placeholder="Storage"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Use Of"
+                    placeholder="Use Of"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Common Side Effect"
+                    placeholder="Common Side Effect"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Alcohol Interaction"
+                    placeholder="Alcohol Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Pregnancy Interaction"
+                    placeholder="Pregnancy Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Lactate Interaction"
+                    placeholder="Lactate Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Driving Interaction"
+                    placeholder="Driving Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Kidney Interaction"
+                    placeholder="Kidney Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Liver Interaction"
+                    placeholder="Liver Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Other Drugs Interaction"
+                    placeholder="Other Drugs Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="Manufacturer Interaction"
+                    placeholder="Manufacturer Interaction"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+                <Col md={6}>
+                  <InputWithLabel
+                    heading="QA"
+                    placeholder="QA"
+                    onChange={handlePackagingChange}
+                    value={packaging}
+                  />
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>{" "}
+          <input type="submit" value="Submit" onClick={handleSubmit} />
+        </Col>
+        <Col sm={4}>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Gallery
+            </CardHeader>
+            <CardBody>
+              <InputOption label={"Status"} option={"Published"} />
+              <InputOption label={"Visibility"} option={"Public"} />
+            </CardBody>
+          </Card>{" "}
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Publish Schedule
+            </CardHeader>
+            <CardBody>
+              <DateTimePicker
+                label={"Publish Date & Time"}
+                placeholder={"Enter publish date"}
               />
-            </div>
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Parent Category
+            </CardHeader>
+            <CardBody>
+              <CategoryOption
+                label={"Select product category"}
+                option={"Fashion"}
+              />
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Sub Category
+            </CardHeader>
+            <CardBody>
+              <CategoryOption
+                label={"Select Sub category"}
+                option={"Fashion"}
+              />
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Sub Sub Categorys
+            </CardHeader>
+            <CardBody>
+              <CategoryOption
+                label={"Select Sub Sub category"}
+                option={"Fashion"}
+              />
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Tags
+            </CardHeader>
+            <CardBody>
+              <ReactSelect />
+            </CardBody>
+          </Card>
+          <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              Product Short Description
+            </CardHeader>
+            <CardBody>
+              <FormGroup>
+                <Label for="exampleDatetime" className="category_bar">
+                  Add short description for product
+                </Label>
+                <Input
+                  id="exampleText"
+                  name="text"
+                  type="textarea"
+                  placeholder="Must enter minimum of a 100 characters"
+                />
+              </FormGroup>
+            </CardBody>
+          </Card> <Card className="p-0 border-0 gray_input mb-3">
+            <CardHeader className="py-3 bg-white" tag={"h6"}>
+              How to Use
+            </CardHeader>
+            <CardBody>
+              <FormGroup>
+
+                <CKEditor
+                  editor={ClassicEditor}
+                  data={how_to_use}
+                  config={{
+                    placeholder: "Enter your text here...",
+                  }}
+                  onReady={(editor) => {
+                    console.log("Editor is ready to use!", editor);
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    setHowToUse(data);
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log("Blur.", editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log("Focus.", editor);
+                  }}
+                />
+
+              </FormGroup>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row >
+
+      {/* <div className="items-spaced-between">
+        <p className="title">Create Product</p>
+        <input
+          type="file"
+          name="file"
+          className="upload-excel-btn"
+          id="inputGroupFile"
+          required
+          onChange={handleImport}
+        />
+       
+    </div >  */}
+      {/* <div className="upload-excel-btn" onClick={handleImport}>
+        Upload Excel
+      </div> */}
+      {/* title and description */}
+      {/* <div className="form">
+        <div className="title-description">
+          <InputWithLabel
+            heading="SKU Code"
+            placeholder="Enter Sku code"
+            onChange={handleSkuChange}
+            value={sku_code}
+          />
+          <InputWithLabel
+            heading="Product Title"
+            placeholder="Enter product name"
+            onChange={handleNameChange}
+            value={name}
+          />
+          <div className="checkbox-with-label">
+            <input
+              type="checkbox"
+              name="prescription_required"
+              id="prescription_required"
+              onChange={handlePrescriptionChange}
+              value={prescription_required}
+            />
+            <label htmlFor="prescription_required">Prescription Required</label>
           </div>
-          <input type="submit" value="SAVE" onClick={handleSubmit} />
+          <p className="heading">Description</p>
+          <CKEditor
+            editor={ClassicEditor}
+            data={description}
+            config={{
+              placeholder: "Enter your text here...",
+            }}
+            onReady={(editor) => {
+              // You can store the "editor" and use when it is needed.
+              console.log("Editor is ready to use!", editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              // console.log({ event, editor, data });
+              setDescription(data);
+            }}
+            onBlur={(event, editor) => {
+              console.log("Blur.", editor);
+            }}
+            onFocus={(event, editor) => {
+              console.log("Focus.", editor);
+            }}
+          />
+          <label htmlFor="category">Category</label>
+          <select onChange={handleCategoryChange}>
+            {categories.map((item, i) => {
+              // console.log(item.id);
+              return (
+                <option id={i} value={[item.title, item.id]}>
+                  {item.title}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      </div> */}
+      {/* images */}
+      {/* <div className="form">
+        <div className="title-description">
+          <p className="heading">Images</p>
+          {arr.map((item, i) => {
+            return (
+              <input
+                type="text"
+                id={i}
+                placeholder={"Enter product image url " + (i + 1)}
+                onChange={handleLinkChange}
+                value={item.value}
+                style={{ color: "black" }}
+              />
+            );
+          })}
+
+          <p className="add-new-url" onClick={addInput}>
+            Add
+          </p>
+        </div>
+      </div> */}
+      {/* manufacturing and cost */}
+      {/* <div className="form">
+        <div className="title-description">
+          <InputWithLabel
+            heading="Manufacturing Company"
+            placeholder="Enter product manufacturer company name"
+            onChange={handleManufacturingCompanyChange}
+            value={manufacturing_company}
+          />
+          <div className="product-price-related-details">
+            <InputWithLabel
+              heading="MRP in INR"
+              placeholder="Eg: 45.10 or 45.00"
+              onChange={handleMrpChange}
+              value={mrp}
+            />
+            <InputWithLabel
+              heading="Discount percentage"
+              placeholder="Eg: 20.50 or 20.00"
+              onChange={handleDiscountChange}
+              value={discount}
+            />
+            <InputWithLabel
+              heading="Price"
+              placeholder=""
+              onChange={handlePriceChange}
+              value={price}
+            />
+          </div>
+          <div className="product-price-related-details"></div>
         </div>
       </div>
-      <BootstrapDialog
+      <div className="form">
+        <div className="title-description">
+          <p className="heading">How to Uses</p>
+          <CKEditor
+            editor={ClassicEditor}
+            data={how_to_use}
+            config={{
+              placeholder: "Enter your text here...",
+            }}
+            onReady={(editor) => {
+              // You can store the "editor" and use when it is needed.
+              console.log("Editor is ready to use!", editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              // console.log({ event, editor, data });
+              setHowToUse(data);
+            }}
+            onBlur={(event, editor) => {
+              console.log("Blur.", editor);
+            }}
+            onFocus={(event, editor) => {
+              console.log("Focus.", editor);
+            }}
+          />
+        </div>
+      </div> */}
+
+      {/* </div> */}
+      {/* </div> */}
+      {/* <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -979,7 +1507,7 @@ export const CreateProduct = () => {
             SAVE
           </Button>
         </DialogActions>
-      </BootstrapDialog>
+      </BootstrapDialog> */}
     </>
   );
 };

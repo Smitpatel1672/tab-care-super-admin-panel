@@ -1,0 +1,220 @@
+.main {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    background: #eee;
+    overflow: hidden;
+    gap: 1rem;
+    min-height: 100vh;
+}
+
+.sub-menu {
+    padding-left: 35px;
+}
+
+.main_inner {
+    display: block;
+    width: calc(100% - 45px);
+    margin-left: calc(45px + 1rem);
+    transition: margin 0.8s;
+    padding-right: 1rem;
+    /* Added 'margin' to the transition */
+}
+
+.main_inner.hovered {
+    margin-left: calc(260px + 1rem);
+    /* width: calc(100% - calc(260px + 1rem)); */
+    transition: margin 0.8s;
+    /* Added 'margin' to the transition */
+}
+
+.header {
+    display: flex;
+    width: -webkit-fill-available;
+    padding: 0.7rem 0;
+    position: fixed;
+    background: #eeeeee;
+    z-index: 999;
+    top: 0;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+.main_conatiner {
+    margin-top: 69px;
+    padding-top: 55px;
+}
+
+.header_above {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+.header_above>span {
+    padding: 0.2rem;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.header_above>span:hover {
+    background: #D9D9D9
+}
+
+.header_above span svg {
+    width: 1.2rem;
+    height: auto;
+}
+
+.breadcrumb_main {
+    position: fixed;
+    display: block;
+    z-index: 9999;
+    background: #eeeeee;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-top: -55px;
+}
+
+.breadcrumb_main ol {
+    margin-bottom: 0px;
+}
+
+.user_login {
+    display: flex;
+    gap: 0.7rem;
+    background: #D9D9D9;
+    padding: 0.35rem;
+    border-radius: 3.5rem;
+    padding-right: 1.5rem;
+}
+
+.user_login span {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_login small {
+    color: #808080;
+}
+
+.dropzone input {
+    display: none
+}
+
+.dropzone .dropzone-container {
+    align-items: center;
+    background-color: #fff;
+    border: 2px dashed #ccc;
+    border-radius: .4rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem
+}
+
+.dropzone .dropzone-container:focus,
+.dropzone .dropzone-container:hover {
+    border-color: #ffad39
+}
+
+.dropzone .dropzone-container:focus .dropzone-title,
+.dropzone .dropzone-container:focus .file-icon,
+.dropzone .dropzone-container:hover .dropzone-title,
+.dropzone .dropzone-container:hover .file-icon {
+    color: #ffad39
+}
+
+.dropzone .dropzone-container .file-icon {
+    color: #3577F1;
+    margin-bottom: .6rem
+}
+
+.dropzone .dropzone-container .file-icon svg {
+    height: 2.5rem;
+    width: 2.5rem
+}
+
+.dropzone .dropzone-container .dropzone-title {
+    color: #3577F1
+}
+
+.dropzone .dropzone-container .dropzone-title .browse {
+    color: #417df8
+}
+
+.dropzone_image {
+    position: relative;
+}
+
+.dropzone_image .remove-box {
+    align-items: center;
+    background-color: #ffb5c4;
+    border-radius: 50%;
+    color: #de002e;
+    cursor: pointer;
+    display: flex;
+    height: 2.1rem;
+    justify-content: center;
+    position: absolute;
+    right: 0.4rem;
+    top: 0.44rem;
+    width: 2.1rem;
+    border: 0px;
+    box-shadow: 0px -1px 8px #00000059;
+}
+
+.general_tab .nav-tabs,
+.general_tab .nav-tabs .nav-link {
+    color: #808080;
+    border: 0;
+}
+
+.general_tab .nav-tabs .nav-link.active {
+    border-bottom: 2px solid #405189;
+    color: #405189;
+    font-weight: 500;
+
+}
+
+.category_bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.category_bar span {
+    text-decoration: underline;
+}
+
+.css-1jqq78o-placeholder {
+    padding: 0 0.5rem;
+}
+
+.css-13cymwt-control,
+.css-t3ipsp-control {
+    border: 2px solid #EBEBEB !important;
+    background: #EBEBEB !important;
+    box-shadow: none !important;
+}
+
+.css-1p3m7a8-multiValue,
+.css-wsp0cs-MultiValueGeneric {
+    background-color: #405189 !important;
+    color: white !important
+}
+
+.gray_input textarea {
+    background: #ebebeb;
+    border-color: #ebebeb;
+}

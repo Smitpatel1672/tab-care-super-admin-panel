@@ -10,7 +10,7 @@ import dashboardIcon from '../assets/svg/dashboard.svg'
 import { useNavigate } from 'react-router';
 import fullLogo from '../assets/svg/logo.svg'
 
-export const Navbar = () => {
+export const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
 
   const navigate = useNavigate();
   const [showCategories, setShowCategories] = useState(false);
@@ -30,7 +30,7 @@ export const Navbar = () => {
   //   navigate('/categories');
   // }
 
-  const navigateToLogin=()=>{
+  const navigateToLogin = () => {
     localStorage.removeItem('wecare_token');
     navigate('/');
   }
@@ -50,12 +50,12 @@ export const Navbar = () => {
   };
 
   const handleMouseOut = () => {
-    setShowCategories(false);
+    // setShowCategories(false);
+    handleMouseLeave();
   }
-
   return (
-    <div className="navbar"  onMouseLeave={handleMouseOut}>
-      <div className="menu-button">
+    <div className="navbar" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseOut}>
+      <div className="menu-button mb-3 mt-2">
         <img src={fullLogo} className="logo-icon-text" alt="logo" />
         <img src={logo} className="logo-icon" alt="logo" />
       </div>

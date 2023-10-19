@@ -18,11 +18,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { Avatar, Button, CircularProgress, IconButton } from "@mui/material";
 import EditCategory from "../../components/Modal/EditCategory";
+import CommonBreadcramb from "../../components/Layout/CommonBreadcramb";
 
-const imgStyle={
-  display:'flex',
-  justifyContent:'center',
-  alignItems:'center'
+const imgStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
 export default function Categories() {
@@ -38,9 +39,9 @@ export default function Categories() {
   const fetchCategoryData = async () => {
     try {
       let categories = await getAllCategories();
-      console.log(categories,'categories');
+      console.log(categories, 'categories');
 
-      if(categories && categories?.statusCode == 200) {
+      if (categories && categories?.statusCode == 200) {
         // let tableData = await amenityListData(amenities.data, this);
         setData(categories.data);
         let tableData = await renderData(categories.data?.categories);
@@ -66,13 +67,13 @@ export default function Categories() {
 
   let options = {
     filter: false,
-    search : false,
-    selectableRows : false,
+    search: false,
+    selectableRows: false,
     filterType: "dropdown",
     responsive: "scroll",
-    rowsPerPageOptions: [10,20,50,100],
+    rowsPerPageOptions: [10, 20, 50, 100],
     downloadOptions: {
-        filename: "parent-category.csv",
+      filename: "parent-category.csv",
     },
   }
 
@@ -85,7 +86,7 @@ export default function Categories() {
           return (
             <span>
               <div>
-                <Avatar src={value?.image} alt="Avatar"/>
+                <Avatar src={value?.image} alt="Avatar" />
                 <p>{value.title}</p>
               </div>
             </span>
@@ -112,7 +113,7 @@ export default function Categories() {
       name: "Action",
       options: {
         filter: false,
-        download : false,
+        download: false,
         customBodyRender: (value, tableMeta, updateValue) => {
           console.log(value, "actions");
           return (
@@ -138,8 +139,8 @@ export default function Categories() {
 
   const renderData = async (categories) => {
     let temp = [];
-    if(categories?.length) {
-      categories.map((category)=>{
+    if (categories?.length) {
+      categories.map((category) => {
         temp.push([
           {
             image: category.img,
@@ -174,12 +175,12 @@ export default function Categories() {
 
   return (
     <>
+
+      <CommonBreadcramb heading={"Categories"} />
       <div className="products">
-        <Navbar />
         <div className="products-body">
-          <SearchComponent />
           <div>
-            <p className="title">Categories</p>
+            {/* <p className="title">Categories</p> */}
             <div>
               <div className="products-and-options">
                 <div className="items-spaced-between">
@@ -201,8 +202,8 @@ export default function Categories() {
                   <div>
                     {
                       loading ?
-                        <CircularProgress/>
-                      :
+                        <CircularProgress />
+                        :
                         <Datatable
                           data={tableData}
                           options={options}

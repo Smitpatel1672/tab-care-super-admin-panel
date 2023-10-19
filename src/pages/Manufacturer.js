@@ -18,11 +18,12 @@ import { Avatar, Button, CircularProgress, IconButton } from "@mui/material";
 import { getAllManufacturers } from "../services/manufacturer.service";
 import CreateManufacturer from "../components/Modal/CreateManufacturer";
 import EditManufacturer from "../components/Modal/EditManufacturer";
+import CommonBreadcramb from "../components/Layout/CommonBreadcramb";
 
-const imgStyle={
-  display:'flex',
-  justifyContent:'center',
-  alignItems:'center'
+const imgStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
 export default function Manufacturers() {
@@ -38,9 +39,9 @@ export default function Manufacturers() {
   const fetchManufacturersData = async () => {
     try {
       let manufacturers = await getAllManufacturers();
-      console.log(manufacturers,'manufacturers');
+      console.log(manufacturers, 'manufacturers');
 
-      if(manufacturers && manufacturers?.statusCode == 200) {
+      if (manufacturers && manufacturers?.statusCode == 200) {
         // let tableData = await amenityListData(amenities.data, this);
         setData(manufacturers.data);
         let tableData = await renderData(manufacturers.data?.manufacturers);
@@ -65,13 +66,13 @@ export default function Manufacturers() {
 
   let options = {
     filter: false,
-    search : false,
-    selectableRows : false,
+    search: false,
+    selectableRows: false,
     filterType: "dropdown",
     responsive: "scroll",
-    rowsPerPageOptions: [10,20,50,100],
+    rowsPerPageOptions: [10, 20, 50, 100],
     downloadOptions: {
-        filename: "manufacturers.csv",
+      filename: "manufacturers.csv",
     },
   }
 
@@ -92,19 +93,19 @@ export default function Manufacturers() {
       },
     },
     {
-        name: "Manufacturer Address",
-        options: {
-            filter: true,
-            customBodyRender: (value) => {
-                return (
-                    <span>
-                        <div>
-                            <p>{value}</p>
-                        </div>
-                    </span>
-                );
-            },
+      name: "Manufacturer Address",
+      options: {
+        filter: true,
+        customBodyRender: (value) => {
+          return (
+            <span>
+              <div>
+                <p>{value}</p>
+              </div>
+            </span>
+          );
         },
+      },
     },
     {
       name: "Status",
@@ -125,7 +126,7 @@ export default function Manufacturers() {
       name: "Action",
       options: {
         filter: false,
-        download : false,
+        download: false,
         customBodyRender: (value, tableMeta, updateValue) => {
           console.log(value, "actions");
           return (
@@ -151,8 +152,8 @@ export default function Manufacturers() {
 
   const renderData = async (manufacturers) => {
     let temp = [];
-    if(manufacturers?.length) {
-        manufacturers.map((manufacturer)=>{
+    if (manufacturers?.length) {
+      manufacturers.map((manufacturer) => {
         temp.push([
           manufacturer.name,
           manufacturer.address,
@@ -184,10 +185,10 @@ export default function Manufacturers() {
 
   return (
     <>
+      <CommonBreadcramb heading={"Manufacturers"} />
       <div className="products">
-        <Navbar />
         <div className="products-body">
-          <SearchComponent />
+
           <div>
             <p className="title">Manufacturers</p>
             <div>
@@ -211,8 +212,8 @@ export default function Manufacturers() {
                   <div>
                     {
                       loading ?
-                        <CircularProgress/>
-                      :
+                        <CircularProgress />
+                        :
                         <Datatable
                           data={tableData}
                           options={options}

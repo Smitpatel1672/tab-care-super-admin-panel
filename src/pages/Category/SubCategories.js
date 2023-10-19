@@ -17,11 +17,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Avatar, Button, CircularProgress, IconButton } from "@mui/material";
 import CreateSubCategory from "../../components/Modal/CreateSubCategory";
 import EditSubCategory from "../../components/Modal/EditSubCategory";
+import CommonBreadcramb from "../../components/Layout/CommonBreadcramb";
 
-const imgStyle={
-  display:'flex',
-  justifyContent:'center',
-  alignItems:'center'
+const imgStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
 export default function SubCategories() {
@@ -36,9 +37,9 @@ export default function SubCategories() {
   const fetchSubCategoryData = async () => {
     try {
       let subCategories = await getAllSubCategories();
-      console.log(subCategories,'subCategories');
+      console.log(subCategories, 'subCategories');
 
-      if(subCategories && subCategories?.statusCode == 200) {
+      if (subCategories && subCategories?.statusCode == 200) {
         // let tableData = await amenityListData(amenities.data, this);
         setData(subCategories.data);
         let tableData = await renderData(subCategories.data?.subcategories);
@@ -56,7 +57,7 @@ export default function SubCategories() {
       setLoading(false);
     }
   }
-  
+
   useEffect(() => {
     fetchSubCategoryData();
   }, []);
@@ -82,7 +83,7 @@ export default function SubCategories() {
           return (
             <span>
               <div>
-                <Avatar src={value?.image} alt="Avatar"/>
+                <Avatar src={value?.image} alt="Avatar" />
                 <p>{value.title}</p>
               </div>
             </span>
@@ -124,7 +125,7 @@ export default function SubCategories() {
       name: "Action",
       options: {
         filter: false,
-        download : false,
+        download: false,
         customBodyRender: (value, tableMeta, updateValue) => {
           console.log(value, "actions");
           return (
@@ -151,20 +152,20 @@ export default function SubCategories() {
 
   let options = {
     filter: false,
-    search : false,
-    selectableRows : false,
+    search: false,
+    selectableRows: false,
     filterType: "dropdown",
     responsive: "scroll",
-    rowsPerPageOptions: [10,20,50,100],
+    rowsPerPageOptions: [10, 20, 50, 100],
     downloadOptions: {
-        filename: "parent-category.csv",
+      filename: "parent-category.csv",
     },
   }
 
   const renderData = async (subCategories) => {
     let temp = [];
-    if(subCategories?.length) {
-      subCategories.map((subCategory)=>{
+    if (subCategories?.length) {
+      subCategories.map((subCategory) => {
         temp.push([
           {
             image: subCategory.img,
@@ -187,10 +188,11 @@ export default function SubCategories() {
 
   return (
     <>
+      <CommonBreadcramb heading={"Sub Categories "} />
       <div className="products">
-        <Navbar />
+
         <div className="products-body">
-          <SearchComponent />
+
           <div>
             <p className="title">Sub Categories</p>
             <div>
@@ -214,8 +216,8 @@ export default function SubCategories() {
                   <div>
                     {
                       loading ?
-                        <CircularProgress/>
-                      :
+                        <CircularProgress />
+                        :
                         <Datatable
                           data={tableData}
                           options={options}

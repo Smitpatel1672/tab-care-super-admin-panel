@@ -17,11 +17,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Avatar, Button, CircularProgress, IconButton } from "@mui/material";
 import CreateSubSubCategory from "../../components/Modal/CreateSubSubCategory";
 import EditSubSubCategory from "../../components/Modal/EditSubSubCategory";
+import CommonBreadcramb from "../../components/Layout/CommonBreadcramb";
 
-const imgStyle={
-  display:'flex',
-  justifyContent:'center',
-  alignItems:'center'
+const imgStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
 export default function SubSubCategories() {
@@ -36,9 +37,9 @@ export default function SubSubCategories() {
   const fetchSubSubCategoryData = async () => {
     try {
       let subSubCategories = await getAllSubSubCategories();
-      console.log(subSubCategories,'subSubCategories');
+      console.log(subSubCategories, 'subSubCategories');
 
-      if(subSubCategories && subSubCategories?.statusCode == 200) {
+      if (subSubCategories && subSubCategories?.statusCode == 200) {
         // let tableData = await amenityListData(amenities.data, this);
         setData(subSubCategories.data);
         let tableData = await renderData(subSubCategories.data?.subSubCategories);
@@ -56,7 +57,7 @@ export default function SubSubCategories() {
       setLoading(false);
     }
   }
-  
+
   useEffect(() => {
     setLoading(true);
     fetchSubSubCategoryData();
@@ -83,7 +84,7 @@ export default function SubSubCategories() {
           return (
             <span>
               <div>
-                <Avatar src={value?.image} alt="Avatar"/>
+                <Avatar src={value?.image} alt="Avatar" />
                 <p>{value.title}</p>
               </div>
             </span>
@@ -140,7 +141,7 @@ export default function SubSubCategories() {
       name: "Action",
       options: {
         filter: false,
-        download : false,
+        download: false,
         customBodyRender: (value, tableMeta, updateValue) => {
           console.log(value, "actions");
           return (
@@ -166,20 +167,20 @@ export default function SubSubCategories() {
 
   let options = {
     filter: false,
-    search : false,
-    selectableRows : false,
+    search: false,
+    selectableRows: false,
     filterType: "dropdown",
     responsive: "scroll",
-    rowsPerPageOptions: [10,20,50,100],
+    rowsPerPageOptions: [10, 20, 50, 100],
     downloadOptions: {
-        filename: "parent-category.csv",
+      filename: "parent-category.csv",
     },
   }
 
   const renderData = async (subSubCategories) => {
     let temp = [];
-    if(subSubCategories?.length) {
-      subSubCategories.map((subSubCategory)=>{
+    if (subSubCategories?.length) {
+      subSubCategories.map((subSubCategory) => {
         temp.push([
           {
             image: subSubCategory.img,
@@ -203,10 +204,10 @@ export default function SubSubCategories() {
 
   return (
     <>
+      <CommonBreadcramb heading={"Sub Sub Categories"} />
       <div className="products">
-        <Navbar />
         <div className="products-body">
-          <SearchComponent />
+
           <div>
             <p className="title">Sub Sub Categories</p>
             <div>
@@ -229,8 +230,8 @@ export default function SubSubCategories() {
                 <Paper square>
                   {
                     loading ?
-                      <CircularProgress/>
-                    :
+                      <CircularProgress />
+                      :
                       <Datatable
                         data={tableData}
                         options={options}

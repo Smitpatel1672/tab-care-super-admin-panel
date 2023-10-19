@@ -1,41 +1,41 @@
-.create-product{
+.create-product {
     display: flex;
     position: relative;
 }
 
-.create-product-body{
+.create-product-body {
     margin-top: 20px;
     width: 90%;
 }
 
-.create-product-body .form{
+.create-product-body .form {
     margin: 15px 0px;
 }
 
-.create-product-body .items-spaced-between{
+.create-product-body .items-spaced-between {
     display: flex;
     margin: 0px;
     justify-content: space-between;
 }
 
-.create-product-body .title{
+.create-product-body .title {
     margin-left: 25px;
     margin-top: 10px;
     font-size: 1.6vmax;
 }
 
-.create-product-body .upload-excel-btn{
+.create-product-body .upload-excel-btn {
     margin: 0px;
     cursor: pointer;
     justify-content: flex-end;
 }
 
-.input[type=file]{
+.input[type=file] {
     justify-content: flex-end;
     text-align: end;
 }
 
-.title-description{
+.title-description {
     padding: 0px 10px 10px;
     background-color: #fff;
     box-shadow: 0px 1px 2px rgba(56, 65, 74, 0.14902);
@@ -43,7 +43,7 @@
     width: 100%;
 }
 
-.create-product-body .heading{
+.create-product-body .heading {
     padding-top: 10px;
     font-family: 'Poppins';
     font-style: normal;
@@ -51,12 +51,12 @@
     font-size: 1.2vmax;
 }
 
-p{
+p {
     margin: 0px;
     margin-bottom: 10px;
 }
 
-.create-product-body .form input[type=text]{
+.create-product-body .form input[type=text] {
     margin: 10px 0px;
     padding: 10px 10px;
     background-color: white;
@@ -64,33 +64,33 @@ p{
     border-radius: 4px;
 }
 
-.create-product-body .form .checkbox-with-label{
+.create-product-body .form .checkbox-with-label {
     display: flex;
 }
 
-.create-product-body .form .checkbox-with-label label{
+.create-product-body .form .checkbox-with-label label {
     margin: 10px;
 }
 
-.create-product-body label{
+.create-product-body label {
     margin: 10px 0px;
 }
 
-.create-product-body select{
+.create-product-body select {
     margin-bottom: 10px;
 }
 
-.add-new-url{
+.add-new-url {
     color: blue;
     font-size: 1vmax;
     cursor: pointer;
 }
 
-.product-price-related-details{
-    display: flex;   
+.product-price-related-details {
+    display: flex;
 }
 
-input[type=submit]{
+input[type=submit] {
     margin-bottom: 25px;
     padding: 10px 25px;
     border: none;
@@ -98,12 +98,16 @@ input[type=submit]{
     background: linear-gradient(97.07deg, #3577F1 -13.4%, #405189 55.52%);
     color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    margin-left: auto;
 }
 
-.excel-data-box{
+.excel-data-box {
     height: 100vh;
     position: fixed;
-    top: 0; 
+    top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -115,6 +119,6 @@ input[type=submit]{
     padding: 2vmax;
 }
 
-.excel-data{
+.excel-data {
     background-color: #fff;
 }

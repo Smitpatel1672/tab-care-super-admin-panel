@@ -1,23 +1,30 @@
-.navbar{
-    margin-right: 20px;
-    padding: 10px 20px;
-    padding-right: 10px;
-    background-color: black;
+.navbar {
+    padding: 1rem 0rem;
+    background-color: #43538A;
     display: block;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    width: 25px;
     transition: width 0.8s;
-    height: max-content;
+    height: 100vh;
     top: 0;
-    position: sticky;
+    position: fixed;
+    overflow-y: overlay;
+    left: 0;
+    width: 50px;
+    bottom: 0;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
 
+.navbar::-webkit-scrollbar {
+    display: none;
+}
 
-.navbar .menu-button{
+.navbar .navbar .menu-button {
     margin: 0px;
     padding: 0px;
-    color: #878A99;
+    color: #dedede;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +32,9 @@
     height: 50px;
 }
 
-.navbar .menu-button:focus,.navbar .menu-button:active,.navbar .menu-button:hover{
+.navbar .menu-button:focus,
+.navbar .menu-button:active,
+.navbar .menu-button:hover {
     margin: 0px;
     padding: 0px;
     color: white;
@@ -35,32 +44,33 @@
     cursor: pointer;
     height: 50px;
 }
-.navbar .menu-button img{
+
+.navbar .menu-button img {
     margin: 0;
     color: white;
 }
 
-.navbar:hover .menu-button .logo-icon-text{
+.navbar:hover .menu-button .logo-icon-text {
     margin: 0;
     visibility: visible;
-    width: 80%;
+    width: 54%;
 }
 
-.navbar:hover .menu-button .logo-icon{
+.navbar:hover .menu-button .logo-icon {
     visibility: hidden;
     width: 0;
 }
 
-.navbar .menu-button .logo-icon-text{
+.navbar .menu-button .logo-icon-text {
     width: 0;
     visibility: hidden;
 }
 
-.navbar .menu-button .logo-icon{
+.navbar .menu-button .logo-icon {
     visibility: visible;
 }
 
-.navbar .menu-button p{
+.navbar .menu-button p {
     margin: 0;
     margin-left: 10px;
     width: 0;
@@ -68,27 +78,41 @@
     transition: width 0.8s;
 }
 
-.sub-menu p{
+.sub-menu p {
     color: #878A99;
 }
 
-.sub-menu p:focus,.navbar .sub-menu p:active,.navbar .sub-menu p:hover {
+.sub-menu p:focus,
+.navbar .sub-menu p:active,
+.navbar .sub-menu p:hover {
     color: white;
 }
 
-.navbar:hover{
-    width: 150px;
-    transition: width 0.8s;
+.navbar .menu-button {
+    margin: 0px;
+    padding: 0px;
+    color: #969696;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
 }
 
-.navbar:hover .menu-button p{
+.navbar:hover {
+    width: 260px;
+    transition: width 0.8s;
+    padding: 1rem
+}
+
+.navbar:hover .menu-button p {
     margin: 0;
     margin-left: 10px;
     width: 100%;
     transition: width 0.8s;
 }
 
-.navbar-icon{
+.navbar-icon {
     display: block;
     margin: 25px 0px;
 }

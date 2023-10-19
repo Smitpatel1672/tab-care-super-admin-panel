@@ -10,6 +10,7 @@ import starHalfIcon from "../assets/svg/star_half.svg";
 import shoppingIcon from "../assets/svg/shopping.svg";
 import * as Constants from '../Constants';
 import dayjs from 'dayjs';
+import CommonBreadcramb from '../components/Layout/CommonBreadcramb';
 
 export const OrderDetails = () => {
     const location = useLocation();
@@ -36,7 +37,7 @@ export const OrderDetails = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: Constants.BASE_URL+'/order/details',
+            url: Constants.BASE_URL + '/order/details',
             headers: {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzZjY2M4MTI2NDkyYTM4M2NlYTM0NSIsInBob25lIjoiODk3MjA2MTQwMCIsInVzZXJUeXBlIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NzQwMjU5Mjl9.f6UA9UD4pw33g29sp5d4L1UWu7GgI-bkgo_nbzwIDys',
                 'Content-Type': 'application/json'
@@ -49,14 +50,14 @@ export const OrderDetails = () => {
                 console.log(response.data);
                 setOrderData(response.data.data);
                 let data = response.data?.data;
-                if(data?.length && data[0]?.hasOwnProperty('shiprocketShipmentId') && data[0]?.shiprocketShipmentId !== undefined) {
+                if (data?.length && data[0]?.hasOwnProperty('shiprocketShipmentId') && data[0]?.shiprocketShipmentId !== undefined) {
                     trackOrderStatus(data[0]?.shiprocketShipmentId);
                 }
             })
             .catch(function (error) {
                 console.log(error);
             });
-    },[]);
+    }, []);
 
     // const generateToken = async () => {
     //     try {
@@ -141,7 +142,7 @@ export const OrderDetails = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: Constants.BASE_URL+'/order/add-shipment-id',
+            url: Constants.BASE_URL + '/order/add-shipment-id',
             headers: {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzZjY2M4MTI2NDkyYTM4M2NlYTM0NSIsInBob25lIjoiODk3MjA2MTQwMCIsInVzZXJUeXBlIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NzQwMjU5Mjl9.f6UA9UD4pw33g29sp5d4L1UWu7GgI-bkgo_nbzwIDys',
                 'Content-Type': 'application/json'
@@ -154,7 +155,7 @@ export const OrderDetails = () => {
 
         axios(config)
             .then(function (response) {
-                console.log(response.data,'shipmentIdAdded');
+                console.log(response.data, 'shipmentIdAdded');
                 alert(`Your Shiprocked Id is : ${response.data?.data?.shiprocketShipmentId} for your order Id : ${response.data?.data?.id}, Kindly note this for future reference`)
             })
             .catch(function (error) {
@@ -166,7 +167,7 @@ export const OrderDetails = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: Constants.BASE_URL+'/order/track-order',
+            url: Constants.BASE_URL + '/order/track-order',
             headers: {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YyMDY1ZjE0YmZmMTg1NjkyMzBkZCIsInVzZXJUeXBlIjoiQURNSU4iLCJpYXQiOjE2OTE1NzQ5NTF9.LDryyqxefTngnY0yQyfRBoODAhc2gS9s7_MgZPBzmPY',
                 'Content-Type': 'application/json'
@@ -178,7 +179,7 @@ export const OrderDetails = () => {
 
         axios(config)
             .then(function (response) {
-                console.log(response.data,'orderTrackingDetails');
+                console.log(response.data, 'orderTrackingDetails');
             })
             .catch(function (error) {
                 console.log(error);
@@ -189,7 +190,7 @@ export const OrderDetails = () => {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: Constants.BASE_URL+'/order/confirm-order',
+            url: Constants.BASE_URL + '/order/confirm-order',
             headers: {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2YyMDY1ZjE0YmZmMTg1NjkyMzBkZCIsInVzZXJUeXBlIjoiQURNSU4iLCJpYXQiOjE2OTE1NzQ5NTF9.LDryyqxefTngnY0yQyfRBoODAhc2gS9s7_MgZPBzmPY',
                 'Content-Type': 'application/json'
@@ -201,7 +202,7 @@ export const OrderDetails = () => {
 
         axios(config)
             .then(function (response) {
-                console.log(response.data,'orderConfirmedAtShiprocket');
+                console.log(response.data, 'orderConfirmedAtShiprocket');
                 alert(`Your Shiprocked Id is : ${response.data?.data?.shiprocketShipmentId} for your order Id : ${response.data?.data?.id}, Kindly note this for future reference`)
             })
             .catch(function (error) {
@@ -210,29 +211,31 @@ export const OrderDetails = () => {
     }
 
     return (
-        <div className="order-details">
-            <Navbar />
-            <div className="order-details-body">
-                <SearchComponent />
-                <p className="title">Orders</p>
-                <div className="order-details-cards">
-                    <div className="order-details-card">
-                        <p className="order-id">Order ID: {orderId}</p>
-                        <Table striped bordered hover size="sm">
-                            <thead>
-                                <tr>
-                                    {headings.map((item) => (<th key={item}>{item}</th>))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {orderData.map((item,i) => {
-                                    return (
-                                        // <div className="orders-data-values">
-                                        <tr key={i}>
-                                            <td key={item.products[i].title}>{(item.products).map((product) => { return (product?.product?.name); })}</td>
-                                            <td key={item.products[i].mrp}>{(item.products).map((product) => { return (product.price); })}</td>
-                                            <td key={item.products[i].quantity}>{(item.products).map((product) => { return (product.quantity); })}</td>
-                                            {/* <td key={"image"+i}>
+        <>
+            <CommonBreadcramb heading={"Order Details"} />
+            <div className="order-details">
+
+                <div className="order-details-body">
+
+                    <p className="title">Orders</p>
+                    <div className="order-details-cards">
+                        <div className="order-details-card">
+                            <p className="order-id">Order ID: {orderId}</p>
+                            <Table striped bordered hover size="sm">
+                                <thead>
+                                    <tr>
+                                        {headings.map((item) => (<th key={item}>{item}</th>))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {orderData.map((item, i) => {
+                                        return (
+                                            // <div className="orders-data-values">
+                                            <tr key={i}>
+                                                <td key={item.products[i].title}>{(item.products).map((product) => { return (product?.product?.name); })}</td>
+                                                <td key={item.products[i].mrp}>{(item.products).map((product) => { return (product.price); })}</td>
+                                                <td key={item.products[i].quantity}>{(item.products).map((product) => { return (product.quantity); })}</td>
+                                                {/* <td key={"image"+i}>
                                                 <img src={starIcon} alt="" />
                                                 <img src={starIcon} alt="" />
                                                 <img src={starIcon} alt="" />
@@ -241,108 +244,109 @@ export const OrderDetails = () => {
                                                 <img src={editIcon} alt="" />
                                                 <img src={deleteIcon} alt="" />
                                             </td> */}
-                                            <td key={item.products[i].price}>{(item.products).map((product) => { return (product.product.price); })}</td>
-                                        </tr>
-                                        //     <div className="divider"></div>
-                                        // </div>
-                                    );
-                                })}
-                            </tbody>
-                        </Table>
-                        <div className="dashed-divider"></div>
-                        <div className="pricing">
-                            <div className="pricing-details">
-                                <div className="pricing-details-title-value">
-                                    <p className="pricing-details-title">Sub Total:</p>
-                                    <p className="pricing-details-value">{orderData[0]?.amount}</p>
-                                </div>
-                                <div className="pricing-details-title-value">
-                                    <p className="pricing-details-title">Discount:</p>
-                                    <p className="pricing-details-value">0</p>
-                                </div>
-                                <div className="pricing-details-title-value">
-                                    <p className="pricing-details-title">Delivery Charge:</p>
-                                    <p className="pricing-details-value">0</p>
-                                </div>
-                                <div className="pricing-details-title-value">
-                                    <p className="pricing-details-title">GST:</p>
-                                    <p className="pricing-details-value">0</p>
-                                </div>
-                                <div className="dashed-divider"></div>
-                                <div className="pricing-details-title-value">
-                                    <p className="pricing-details-total">Total (INR):</p>
-                                    <p className="pricing-details-total">Rs. {orderData[0]?.amount}</p>
+                                                <td key={item.products[i].price}>{(item.products).map((product) => { return (product.product.price); })}</td>
+                                            </tr>
+                                            //     <div className="divider"></div>
+                                            // </div>
+                                        );
+                                    })}
+                                </tbody>
+                            </Table>
+                            <div className="dashed-divider"></div>
+                            <div className="pricing">
+                                <div className="pricing-details">
+                                    <div className="pricing-details-title-value">
+                                        <p className="pricing-details-title">Sub Total:</p>
+                                        <p className="pricing-details-value">{orderData[0]?.amount}</p>
+                                    </div>
+                                    <div className="pricing-details-title-value">
+                                        <p className="pricing-details-title">Discount:</p>
+                                        <p className="pricing-details-value">0</p>
+                                    </div>
+                                    <div className="pricing-details-title-value">
+                                        <p className="pricing-details-title">Delivery Charge:</p>
+                                        <p className="pricing-details-value">0</p>
+                                    </div>
+                                    <div className="pricing-details-title-value">
+                                        <p className="pricing-details-title">GST:</p>
+                                        <p className="pricing-details-value">0</p>
+                                    </div>
+                                    <div className="dashed-divider"></div>
+                                    <div className="pricing-details-title-value">
+                                        <p className="pricing-details-total">Total (INR):</p>
+                                        <p className="pricing-details-total">Rs. {orderData[0]?.amount}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="order-details-card">
-                        <div className="order-details-card-heading">
-                            <p className="order-id">Order Status</p>
-                            <div className="actions">
-                                <div>
-                                    <button
-                                        className='confirm-order-button'
-                                        onClick={() => confirmOrder()}
-                                    >
-                                        Confirm Order
-                                    </button>
-                                </div>
-                                {/* <div className="change-address">
+                        <div className="order-details-card">
+                            <div className="order-details-card-heading">
+                                <p className="order-id">Order Status</p>
+                                <div className="actions">
+                                    <div>
+                                        <button
+                                            className='confirm-order-button'
+                                            onClick={() => confirmOrder()}
+                                        >
+                                            Confirm Order
+                                        </button>
+                                    </div>
+                                    {/* <div className="change-address">
                                 </div> */}
-                                <div className="cancel-order">
-                                    <p>Cancel Order</p>
+                                    <div className="cancel-order">
+                                        <p>Cancel Order</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divider"></div>
+                            <div className="statuses">
+                                <div className="status-icon-and-text">
+                                    <div className="status-icon">
+                                        <img src={shoppingIcon} alt="" />
+                                    </div>
+                                    <p>Order Placed</p>
+                                </div>
+                                <div className="dashed-divider-and-status-details">
+                                    <div className="dashed-divider"></div>
+                                    <div className="status-details">
+                                        <p className="status-details-heading">An order has been placed.</p>
+                                        <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
+                                        <p className="status-details-heading">An order has been placed.</p>
+                                        <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
+                                    </div>
+                                </div>
+                                <div className="status-icon-and-text">
+                                    <div className="status-icon">
+                                        <img src={shoppingIcon} alt="" />
+                                    </div>
+                                    <p>Order Placed</p>
+                                </div>
+                                <div className="dashed-divider-and-status-details">
+                                    <div className="dashed-divider"></div>
+                                    <div className="status-details">
+                                        <p className="status-details-heading">An order has been placed.</p>
+                                        <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
+                                        <p className="status-details-heading">An order has been placed.</p>
+                                        <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="divider"></div>
-                        <div className="statuses">
-                            <div className="status-icon-and-text">
-                                <div className="status-icon">
-                                    <img src={shoppingIcon} alt="" />
-                                </div>
-                                <p>Order Placed</p>
-                            </div>
-                            <div className="dashed-divider-and-status-details">
-                                <div className="dashed-divider"></div>
-                                <div className="status-details">
-                                    <p className="status-details-heading">An order has been placed.</p>
-                                    <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
-                                    <p className="status-details-heading">An order has been placed.</p>
-                                    <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
+                        <div className="order-details-card-small">
+                            <div className="order-details-card-heading">
+                                <p className="order-id">Customer Details</p>
+                                <div className="actions">
+                                    <div className="change-address">
+                                        <p>View Profile</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="status-icon-and-text">
-                                <div className="status-icon">
-                                    <img src={shoppingIcon} alt="" />
-                                </div>
-                                <p>Order Placed</p>
-                            </div>
-                            <div className="dashed-divider-and-status-details">
-                                <div className="dashed-divider"></div>
-                                <div className="status-details">
-                                    <p className="status-details-heading">An order has been placed.</p>
-                                    <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
-                                    <p className="status-details-heading">An order has been placed.</p>
-                                    <p className="status-details-body">Wed, 15 Dec 2021 - 05:34PM</p>
-                                </div>
-                            </div>
+                            <div className="divider"></div>
+                            <div className="heading">Joseph</div>
                         </div>
-                    </div>
-                    <div className="order-details-card-small">
-                        <div className="order-details-card-heading">
-                            <p className="order-id">Customer Details</p>
-                            <div className="actions">
-                                <div className="change-address">
-                                    <p>View Profile</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="divider"></div>
-                        <div className="heading">Joseph</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

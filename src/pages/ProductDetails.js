@@ -4,11 +4,11 @@ import { SearchComponent } from "../components/SearchComponent";
 import "../styles/product_details.css"
 
 export const ProductDetails = () => {
-  return (
-    <div className="products">
-            <Navbar />
+    return (
+        <div className="products">
+
             <div className="products-body">
-                <SearchComponent />
+
                 <p className="title">Products</p>
                 <div className="filter-and-products">
                     <div className="filter">
@@ -45,11 +45,11 @@ export const ProductDetails = () => {
                                 <p>Search Products...</p>
                             </div>
                         </div> */}
-                  
-                        
+
+
                     </div>
                 </div>
             </div>
         </div>
-  )
+    )
 }
