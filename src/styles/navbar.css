@@ -1,0 +1,94 @@
+.navbar{
+    margin-right: 20px;
+    padding: 10px 20px;
+    padding-right: 10px;
+    background-color: black;
+    display: block;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 25px;
+    transition: width 0.8s;
+    height: max-content;
+    top: 0;
+    position: sticky;
+}
+
+
+.navbar .menu-button{
+    margin: 0px;
+    padding: 0px;
+    color: #878A99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+}
+
+.navbar .menu-button:focus,.navbar .menu-button:active,.navbar .menu-button:hover{
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+}
+.navbar .menu-button img{
+    margin: 0;
+    color: white;
+}
+
+.navbar:hover .menu-button .logo-icon-text{
+    margin: 0;
+    visibility: visible;
+    width: 80%;
+}
+
+.navbar:hover .menu-button .logo-icon{
+    visibility: hidden;
+    width: 0;
+}
+
+.navbar .menu-button .logo-icon-text{
+    width: 0;
+    visibility: hidden;
+}
+
+.navbar .menu-button .logo-icon{
+    visibility: visible;
+}
+
+.navbar .menu-button p{
+    margin: 0;
+    margin-left: 10px;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.8s;
+}
+
+.sub-menu p{
+    color: #878A99;
+}
+
+.sub-menu p:focus,.navbar .sub-menu p:active,.navbar .sub-menu p:hover {
+    color: white;
+}
+
+.navbar:hover{
+    width: 150px;
+    transition: width 0.8s;
+}
+
+.navbar:hover .menu-button p{
+    margin: 0;
+    margin-left: 10px;
+    width: 100%;
+    transition: width 0.8s;
+}
+
+.navbar-icon{
+    display: block;
+    margin: 25px 0px;
+}

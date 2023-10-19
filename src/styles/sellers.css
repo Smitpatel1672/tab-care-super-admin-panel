@@ -1,0 +1,147 @@
+.orders{
+    display: flex;
+}
+
+.orders-body{
+    margin-top: 20px;
+    width: 90%;
+}
+
+.orders-body .title{
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 1.6vmax;
+}
+
+.orders-body .orders-card{
+    background-color: white;
+    box-shadow: 0px 1px 2px rgba(56, 65, 74, 0.14902);
+    border-radius: 4px;
+}
+
+.orders-body .orders-card .orders-search-parameters{
+    display: flex;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+.filter-button{
+    display: flex;
+    background: #405189;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-button img{
+    margin: 0;
+}
+
+.filter-button p{
+    margin: 10px;
+    color: white;
+}
+
+.dashed-divider{
+    border: 1px dashed #EBEBEB;
+}
+
+.divider{
+    border: 1px solid #EBEBEB;
+}
+
+.orders-card table {
+    width: 100%;
+    border-collapse: collapse;
+     table-layout: fixed;
+    /*position: relative;
+    box-sizing: border-box; */
+}
+  
+.orders-card table th{
+    margin: 0;
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    overflow: hidden;
+    /* overflow-wrap: break-word; */
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 1vmax;
+}
+
+.orders-data-values{
+    width: 100%;
+}
+
+.orders-card table tr td{
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    font-size: 1vmax;
+    text-align: center;
+}
+
+.orders-card table tr td p{
+    margin: 0;
+    padding: 5px;
+    background-color: rgba(247, 184, 75, 0.098);
+    color: #F7B84B;
+    width: max-content;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.orders-card table tr td img{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.prev-next-nav-buttons{
+    margin: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.prev-next-nav-buttons .disabled{
+    margin: 0 2px;
+    padding: 5px 10px;
+    background-color: #D9D9D9;
+    border: 1px solid #B5B5B5;
+    border-radius: 4px;
+    color: #6A7784;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.prev-next-nav-buttons .other-page{
+    margin: 0 2px;
+    padding: 5px 10px;
+    background-color: #D9D9D9;
+    border: 1px solid #B5B5B5;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.prev-next-nav-buttons .current-page{
+    margin: 0 2px;
+    padding: 5px 10px;
+    background-color: #405189;
+    border: 1px solid #B5B5B5;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.prev-next-nav-buttons .enabled{
+    margin: 0 2px;
+    padding: 5px 10px;
+    background-color: #D9D9D9;
+    border: 1px solid #B5B5B5;
+    border-radius: 4px;
+    cursor: pointer;
+}

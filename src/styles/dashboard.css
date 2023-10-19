@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(245,245,245);
+}
+
+.dashboard{
+    background-color: rgb(245,245,245);
+    display: flex;
+}
+
+.dashboard-body{
+    margin-top: 20px;
+}
+
+.dashboard h1{
+    margin: 0;
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 1.6vmax;
+}
+
+.dashboard p{
+    margin: 0;
+    margin-left: 25px;
+}
+
+.dashboard-cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+
