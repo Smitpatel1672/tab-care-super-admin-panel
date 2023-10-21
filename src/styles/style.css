@@ -218,3 +218,45 @@
     background: #ebebeb;
     border-color: #ebebeb;
 }
+
+.profuct_filter {
+    height: 82vh !important;
+}
+
+.profuct_filter .accordion-body {
+    color: #808080;
+}
+
+.profuct_filter p.mb-1 .form-check {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.profuct_filter .accordion-button {
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+.profuct_filter .min-max {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.profuct_filter .min-max input {
+    background-color: #EBEBEB !important;
+    color: black !important;
+    box-shadow: none !important;
+    padding-left: 0.5rem !important;
+    margin: 0 !important;
+}
+
+.profuct_filter input {
+    background-color: #EBEBEB !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 0px !important;
+}
