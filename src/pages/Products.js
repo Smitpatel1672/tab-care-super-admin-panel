@@ -15,9 +15,24 @@ import editIcon from "../assets/svg/edit.svg";
 import deleteIcon from "../assets/svg/delete.svg";
 import * as Constants from "../Constants";
 import CommonBreadcramb from "../components/Layout/CommonBreadcramb";
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Card, CardBody, Col, FormGroup, Input, Row } from "reactstrap";
+import {
+    Accordion,
+    AccordionBody,
+    AccordionHeader,
+    AccordionItem,
+    Badge,
+    Card,
+    CardBody,
+    CardHeader,
+    CloseButton,
+    Col,
+    FormGroup,
+    Input,
+    Row,
+} from "reactstrap";
 import { Slider } from "@material-ui/core";
 import UploadSvgIcon from "../assets/svg/upload_svg.svg";
+import CommonTable from "../components/common/Table";
 export const Products = () => {
     const navigate = useNavigate();
 
@@ -161,7 +176,7 @@ export const Products = () => {
                 console.log(error);
             });
     }
-    const [open, setOpen] = useState('');
+    const [open, setOpen] = useState("");
     const toggle = (id) => {
         if (open === id) {
             setOpen();
@@ -179,7 +194,6 @@ export const Products = () => {
         return `$${value}`;
     };
 
-
     return (
         <>
             <CommonBreadcramb heading={"Products"} />
@@ -190,50 +204,60 @@ export const Products = () => {
                             <p className="filter-heading">Filters</p>
                             <p className="underlined-button">Clear All</p>
                         </div>
-                        <div className="divider"></div>
+                        <CardHeader>
+                            <div className="slected_filter">
+                                <Badge color="primary">
+                                    Medicine <CloseButton />
+                                </Badge>{" "}
+                                <Badge color="primary">
+                                    Painkiller <CloseButton />
+                                </Badge>{" "}
+                                <Badge color="primary">
+                                    12-15 years <CloseButton />
+                                </Badge>
+                                <Badge color="primary">
+                                    20% Off <CloseButton />
+                                </Badge>
+                            </div>
+                        </CardHeader>
+                        {/* <div className="divider"></div> */}
                         <Accordion flush open={open} toggle={toggle}>
                             <AccordionItem>
-                                <AccordionHeader targetId="1" className="m-0">Category</AccordionHeader>
+                                <AccordionHeader targetId="1" className="m-0">
+                                    Category
+                                </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    <p className="mb-1">
-                                        Headache
-                                    </p>
-                                    <p className="mb-1">
-                                        Painkiller
-                                    </p>
-                                    <p className="mb-1">
-                                        Mobiles
-                                    </p>
+                                    <p className="mb-1">Headache</p>
+                                    <p className="mb-1">Painkiller</p>
+                                    <p className="mb-1">Mobiles</p>
                                     <p className="mb-1">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="myCheckbox" />
-                                            {' '}
-                                            <p htmlFor="myCheckbox" check>
+                                            <Input type="checkbox" id="myCheckbox" />{" "}
+                                            <p htmlFor="myCheckbox" className="mb-0" check>
                                                 Electronics
                                             </p>
                                         </FormGroup>
                                     </p>
                                     <p className="mb-1">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Home" />
-                                            {' '}
-                                            <p htmlFor="Home" check>
+                                            <Input type="checkbox" id="Home" />{" "}
+                                            <p htmlFor="Home" className="mb-0" check>
                                                 Home & Furniture
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-1 ">
+                                    </p>
+                                    <p className="mb-1 ">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Appliances" />
-                                            {' '}
-                                            <p htmlFor="Appliances" check>
+                                            <Input type="checkbox" id="Appliances" />{" "}
+                                            <p htmlFor="Appliances" className="mb-0" check>
                                                 Appliances
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-1">
+                                    </p>
+                                    <p className="mb-1">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Kids" />
-                                            {' '}
-                                            <p htmlFor="Kids" check>
+                                            <Input type="checkbox" id="Kids" />{" "}
+                                            <p htmlFor="Kids" className="mb-0" check>
                                                 Kids
                                             </p>
                                         </FormGroup>
@@ -241,7 +265,9 @@ export const Products = () => {
                                 </AccordionBody>
                             </AccordionItem>
                             <AccordionItem>
-                                <AccordionHeader targetId="2" className="m-0">PRICE</AccordionHeader>
+                                <AccordionHeader targetId="2" className="m-0">
+                                    Price
+                                </AccordionHeader>
                                 <AccordionBody accordionId="2">
                                     <Slider
                                         value={values}
@@ -249,7 +275,7 @@ export const Products = () => {
                                         valueLabelDisplay="auto"
                                         valueLabelFormat={valueLabelFormat}
                                         aria-labelledby="range-slider"
-                                        min={100}  // Minimum value
+                                        min={100} // Minimum value
                                         max={10000} // Maximum value
                                     />
                                     <div className="min-max">
@@ -258,30 +284,44 @@ export const Products = () => {
                                         <Input type="text" name="max" id="max" placeholder="Max." />
                                     </div>
                                 </AccordionBody>
-                            </AccordionItem> <AccordionItem>
-                                <AccordionHeader targetId="3" className="m-0">BRANDS</AccordionHeader>
+                            </AccordionItem>{" "}
+                            <AccordionItem>
+                                <AccordionHeader targetId="3" className="m-0">
+                                    Brand{" "}
+                                    <Badge
+                                        color="primary "
+                                        size={"sm"}
+                                        style={{ borderRadius: "50px" }}
+                                    >
+                                        4
+                                    </Badge>{" "}
+                                </AccordionHeader>
                                 <AccordionBody accordionId="3">
-                                    <Input class="form-control mr-sm-2 mb-4" type="search" placeholder="Search" aria-label="Search" />
+                                    <Input
+                                        class="form-control mr-sm-2 mb-4"
+                                        type="search"
+                                        placeholder="Search"
+                                        aria-label="Search"
+                                    />
                                     <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Home" />
-                                            {' '}
+                                            <Input type="checkbox" id="Home" />{" "}
                                             <p htmlFor="Home" check>
                                                 Home & Furniture
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0 ">
+                                    </p>
+                                    <p className="mb-0 ">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Appliances" />
-                                            {' '}
+                                            <Input type="checkbox" id="Appliances" />{" "}
                                             <p htmlFor="Appliances" check>
                                                 Appliances
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0">
+                                    </p>
+                                    <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Kids" />
-                                            {' '}
+                                            <Input type="checkbox" id="Kids" />{" "}
                                             <p htmlFor="Kids" check>
                                                 Kids
                                             </p>
@@ -290,28 +330,36 @@ export const Products = () => {
                                 </AccordionBody>
                             </AccordionItem>
                             <AccordionItem>
-                                <AccordionHeader targetId="5" className="m-0">DISCOUNT</AccordionHeader>
+                                <AccordionHeader targetId="5" className="m-0">
+                                    Discount{" "}
+                                    <Badge
+                                        color="primary"
+                                        size={"sm"}
+                                        style={{ borderRadius: "50px" }}
+                                    >
+                                        4
+                                    </Badge>
+                                </AccordionHeader>
                                 <AccordionBody accordionId="5">
                                     <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Home" />
-                                            {' '}
+                                            <Input type="checkbox" id="Home" />{" "}
                                             <p htmlFor="Home" check>
                                                 Home & Furniture
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0 ">
+                                    </p>
+                                    <p className="mb-0 ">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Appliances" />
-                                            {' '}
+                                            <Input type="checkbox" id="Appliances" />{" "}
                                             <p htmlFor="Appliances" check>
                                                 Appliances
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0">
+                                    </p>
+                                    <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Kids" />
-                                            {' '}
+                                            <Input type="checkbox" id="Kids" />{" "}
                                             <p htmlFor="Kids" check>
                                                 Kids
                                             </p>
@@ -320,28 +368,36 @@ export const Products = () => {
                                 </AccordionBody>
                             </AccordionItem>
                             <AccordionItem>
-                                <AccordionHeader targetId="4" className="m-0">RATING</AccordionHeader>
+                                <AccordionHeader targetId="4" className="m-0">
+                                    Rating{" "}
+                                    <Badge
+                                        color="primary"
+                                        size={"sm"}
+                                        style={{ borderRadius: "50px" }}
+                                    >
+                                        4
+                                    </Badge>
+                                </AccordionHeader>
                                 <AccordionBody accordionId="4">
                                     <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Home" />
-                                            {' '}
+                                            <Input type="checkbox" id="Home" />{" "}
                                             <p htmlFor="Home" check>
                                                 Home & Furniture
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0 ">
+                                    </p>
+                                    <p className="mb-0 ">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Appliances" />
-                                            {' '}
+                                            <Input type="checkbox" id="Appliances" />{" "}
                                             <p htmlFor="Appliances" check>
                                                 Appliances
                                             </p>
                                         </FormGroup>
-                                    </p><p className="mb-0">
+                                    </p>
+                                    <p className="mb-0">
                                         <FormGroup check>
-                                            <Input type="checkbox" id="Kids" />
-                                            {' '}
+                                            <Input type="checkbox" id="Kids" />{" "}
                                             <p htmlFor="Kids" check>
                                                 Kids
                                             </p>
@@ -362,10 +418,9 @@ export const Products = () => {
                     <div className="filter"></div>
                 </Col>{" "}
                 <Col md={9}>
-                    <Card className='border-0'>
+                    <Card className="border-0">
                         <div className="items-spaced-between">
                             <div className="d-flex gap-3">
-
                                 <div
                                     className="create-product-button"
                                     onClick={() => navigate("/createproduct")}
@@ -401,52 +456,9 @@ export const Products = () => {
                                 <Tab label="Draft" />
                             </Tabs>
                         </Paper>
-                        <Table striped bordered hover size="sm">
-                            <thead>
-                                <tr>
-                                    {headings.map((item) => (
-                                        <th key={item}>{item}</th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.map((product, index) => {
-                                    return (
-                                        // <div className="orders-data-values">
-                                        <tr key={index}>
-                                            <td>{index + 1}</td>
-                                            <td>{product.product}</td>
-                                            <td>{product.category}</td>
-                                            <td>{product.price}</td>
-                                            <td>{product.mrp}</td>
-                                            <td>{product.orders}</td>
-                                            <td>{product.sale}</td>
-                                            {/* <td key={i + 1}>{i + 1}</td>
-                                            <td key={item.images} className="product-image-and-name"><img src={Constants.IMAGE_BASE_URL + item.images[0]} style={{ height: '40px', width: '40px' }} alt={item.name} />{item.name}</td>
-                                            <td key={item.category}>{item.category}</td>
-                                            <td key={item.price}>{item.price}</td>
-                                            <td key={item.mrp}>{item.mrp}</td> */}
-                                            {/* <td key={item}>{item.rating}</td> */}
-                                            {/* <td key={item.orders}>{item.orders}</td>
-                                            <td key={item.sale}>{item.sale}</td>
-                                            <td key={item + "action" + i}>
-                                                <img src={viewIcon} alt="" onClick={() => navigate('/orders/details', { state: {} })} />
-                                                <img src={editIcon} alt="" />
-                                                <img src={deleteIcon} alt="" onClick={() => handleDelete(item.id)} />
-                                            </td> */}
-                                        </tr>
-                                        //     <div className="divider"></div>
-                                        // </div>
-                                    );
-                                })}
-                            </tbody>
-                        </Table>
+                        <CommonTable headings={headings} data={data} />
                     </Card>
-                    <div className="products-and-options">
-
-
-
-                    </div>
+                    <div className="products-and-options"></div>
                 </Col>
             </Row>
             {/* <div className="filter-and-products">
@@ -454,7 +466,6 @@ export const Products = () => {
 
             </div> */}
             {/* </div> */}
-
         </>
     );
 };

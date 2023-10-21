@@ -14,6 +14,8 @@
     padding-left: 35px;
 }
 
+
+
 .main_inner {
     display: block;
     width: calc(100% - 45px);
@@ -223,6 +225,8 @@
     height: 82vh !important;
 }
 
+
+
 .profuct_filter .accordion-body {
     color: #808080;
 }
@@ -237,6 +241,12 @@
 .profuct_filter .accordion-button {
     margin-top: 0;
     text-transform: capitalize;
+    gap: 0.5rem;
+    background: white !important;
+    box-shadow: none !important;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 1rem;
 }
 
 .profuct_filter .min-max {
@@ -259,4 +269,30 @@
     color: black !important;
     box-shadow: none !important;
     border: 0px !important;
+}
+
+.slected_filter .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 0.4rem;
+    font-weight: 400;
+}
+
+.slected_filter .badge button {
+    color: #fff;
+    margin: 0;
+    font-size: 0.55rem;
+    filter: invert(1);
+    box-shadow: none !important;
+    border-left: 2px solid black;
+    border-radius: 0;
+    padding-left: 0.5rem;
+}
+
+.slected_filter {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
 }
