@@ -9,6 +9,7 @@ import order from '../assets/svg/orders.svg';
 import dashboardIcon from '../assets/svg/dashboard.svg'
 import { useNavigate } from 'react-router';
 import fullLogo from '../assets/svg/logo.svg'
+import { Link } from 'react-router-dom';
 
 export const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
 
@@ -86,6 +87,10 @@ export const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
         <img src={order} className="navbar-icon" alt="logo" />
         <p>Orders</p>
       </div>
+      <Link className="menu-button" to={'/doctors'}>
+        <img src={order} className="navbar-icon" alt="logo" />
+        <p>Doctors </p>
+      </Link>
       <div className="menu-button">
         <img src={profile} className="navbar-icon" alt="logo" />
         <p>Profile</p>

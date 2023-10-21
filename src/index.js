@@ -21,6 +21,8 @@ import SubSubCategories from './pages/Category/SubSubCategories';
 import Manufacturers from './pages/Manufacturer';
 import Layout from './components/Layout/Layout';
 import 'react-datepicker/dist/react-datepicker.css';
+import Doctors from './pages/Doctors';
+import CreateDocter from './pages/Doctors/CreateDocter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,6 +31,8 @@ root.render(
       <Routes>
         <Route element={<Layout />}>
           <Route path="/createproduct" element={<CreateProduct />} />
+          <Route path="/doctors" element={<Doctors />} />
+          <Route path="/doctors/create" element={<CreateDocter />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />

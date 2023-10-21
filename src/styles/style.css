@@ -81,12 +81,26 @@
     display: block;
     z-index: 9999;
     background: #eeeeee;
-    width: 100%;
-    padding: 0.7rem 1rem;
-    margin-top: -55px;
+    width: -webkit-fill-available;
+    padding: 0.7rem 1rem 0;
+    margin-top: -60px;
 }
 
-.breadcrumb_main ol {
+.breadcrumb_main .create-product-button {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+}
+
+.breadcrumb_main .breadcrumb-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+
+}
+
+.breadcrumb_main {
     margin-bottom: 0px;
 }
 
@@ -222,7 +236,8 @@
 }
 
 .profuct_filter {
-    height: 82vh !important;
+    min-height: 82vh !important;
+    height: 100%;
 }
 
 
@@ -295,4 +310,102 @@
     display: flex;
     gap: 0.25rem;
     flex-wrap: wrap;
+}
+
+.has-search {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem !important;
+    box-shadow: none !important;
+    color: black !important;
+    background-color: #EBEBEB !important;
+    border: 0 !important;
+    font-weight: 400 !important;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.doctors_heqader {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.doctors_heqader button {
+    margin: 0;
+    width: auto;
+    display: flex;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: rgba(41, 156, 219, 0.098);
+    color: #299CDB;
+}
+
+.doctors_heqader button.active {
+    margin: 0;
+    width: auto;
+    display: flex;
+    border-radius: 50%;
+    background-color: #299CDB;
+}
+
+.dr_info .card-body {
+    padding: 2rem;
+}
+
+.dr_info .d-flex {
+    justify-content: space-between;
+}
+
+.dr_info .text-muted {
+    font-size: 0.85rem;
+}
+
+.dr_info span {
+    cursor: pointer;
+    height: fit-content;
+}
+
+.create_member {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+input[type=text],
+input[type=password] {
+    /* margin: 0px; */
+    /* padding: 10px 10px; */
+    border: 2px solid #EBEBEB;
+    border-radius: 4px;
+    color: black !important;
+    background-color: #EBEBEB !important;
+    box-shadow: none !important;
+}
+
+input[type=password] {
+    padding: .375rem .75rem !important;
+}
+
+.gradiant_btn {
+    background: linear-gradient(97.07deg, #3577F1 -13.4%, #405189 55.52%);
+    width: auto;
+    border-radius: 2rem !important;
+    margin: 0;
 }

@@ -6,7 +6,7 @@ export const InputWithLabel = (props) => {
     return (
         <FormGroup className="input-with-label" key={props.heading}>
             {props.heading && <p className="heading">{props.heading}</p>}
-            <Input type="text" placeholder={props.placeholder} onChange={props.onChange} value={props.value} />
+            <Input type={props.type ? props.type : "text"} placeholder={props.placeholder} onChange={props.onChange} value={props.value} />
         </FormGroup>
     )
 }

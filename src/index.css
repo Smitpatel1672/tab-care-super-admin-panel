@@ -58,3 +58,8 @@ code {
   background-color: #405189 !important;
   border-color: #405189 !important;
 }
+
+.text-muted {
+  color: #878A99 !important;
+  font-weight: 400;
+}

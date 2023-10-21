@@ -33,21 +33,51 @@ import {
 import { Slider } from "@material-ui/core";
 import UploadSvgIcon from "../assets/svg/upload_svg.svg";
 import CommonTable from "../components/common/Table";
+import BootstrapTable from "react-bootstrap-table-next";
+import Commonpagination from "../components/common/CommonPagination";
 export const Products = () => {
     const navigate = useNavigate();
 
     const token = localStorage.getItem("wecare_token");
 
     const [value, setValue] = useState(0);
-    const headings = [
-        "S. No.",
-        "PRODUCT",
-        "CATEGORY",
-        "PRICE",
-        "MRP",
-        "ORDERS",
-        "SALE",
-        "ACTION",
+
+    const columns = [
+        {
+            dataField: 'product',
+            text: 'Product Name',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'category',
+            text: 'Category',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'price',
+            text: 'Price',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'mrp',
+            text: 'MRP',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'rating',
+            text: 'Rating',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'orders',
+            text: 'Orders',
+            sort: true, // Enable sorting for this column
+        },
+        {
+            dataField: 'sale',
+            text: 'Sale',
+            sort: true, // Enable sorting for this column
+        },
     ];
     let [data, setData] = useState([]);
     // const data = [
@@ -456,7 +486,8 @@ export const Products = () => {
                                 <Tab label="Draft" />
                             </Tabs>
                         </Paper>
-                        <CommonTable headings={headings} data={data} />
+                        <CommonTable columns={columns} data={data} />
+                        <Commonpagination />
                     </Card>
                     <div className="products-and-options"></div>
                 </Col>
