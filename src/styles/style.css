@@ -44,7 +44,7 @@
     padding-right: 1rem;
 }
 
-.main_conatiner {
+.main_container {
     margin-top: 69px;
     padding-top: 55px;
 }
@@ -339,7 +339,7 @@
     color: #aaa;
 }
 
-.doctors_heqader {
+.doctors_header {
     display: flex;
     gap: 0.7rem;
     justify-content: flex-end;
@@ -347,7 +347,7 @@
 
 }
 
-.doctors_heqader button {
+.doctors_header button {
     margin: 0;
     width: auto;
     display: flex;
@@ -357,7 +357,7 @@
     color: #299CDB;
 }
 
-.doctors_heqader button.active {
+.doctors_header button.active {
     margin: 0;
     width: auto;
     display: flex;

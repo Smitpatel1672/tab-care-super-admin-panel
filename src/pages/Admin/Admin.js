@@ -16,10 +16,10 @@ import {
     StarIcon,
     ThreeDotsSvg,
 } from "../../components/svgIcons/commonSvgIcons";
-import CommonDocter from "../../components/common/CommonDocter";
+import ProfileCard from "../../components/common/ProfileCard";
 import { useNavigate } from "react-router-dom";
 import AddIcon from '../../assets/svg/add_icon.svg'
-export default function Doctors() {
+export default function Admin() {
     const navigate = useNavigate()
     return (
         <>
@@ -41,7 +41,7 @@ export default function Doctors() {
                             </div>
                         </Col>
                         <Col>
-                            <div className="d-flex doctors_heqader">
+                            <div className="d-flex doctors_header">
                                 <button className="active">
                                     <SquareShape />
                                 </button>
@@ -50,10 +50,10 @@ export default function Doctors() {
                                 </button>
                                 <span
                                     className="create-product-button "
-                                    onClick={() => navigate("/doctors/create")}
+                                    onClick={() => navigate("/admin/create")}
                                 >
                                     <img src={AddIcon} alt="" />
-                                    <p>Add Memebers</p>
+                                    <p>Add Members</p>
                                 </span>
                             </div>
                         </Col>
@@ -61,31 +61,11 @@ export default function Doctors() {
                 </CardHeader>
             </Card>
             <Row>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-                <Col md={3} className="mb-4">
-                    <CommonDocter />
-                </Col>
-
+                {Array.from({ length: 8 }, (_, index) => (
+                    <Col key={index} md={3} className="mb-4">
+                        <ProfileCard />
+                    </Col>
+                ))}
             </Row>
         </>
     );

@@ -21,8 +21,14 @@ import SubSubCategories from './pages/Category/SubSubCategories';
 import Manufacturers from './pages/Manufacturer';
 import Layout from './components/Layout/Layout';
 import 'react-datepicker/dist/react-datepicker.css';
-import Doctors from './pages/Doctors';
-import CreateDocter from './pages/Doctors/CreateDocter';
+import Doctors from './pages/Doctors/AllDoctor';
+import CreateDoctor from './pages/Doctors/CreateDoctor';
+import CreateAdmin from './pages/Admin/CreateAdmin';
+import CreateSeller from './pages/Seller/CreateSeller';
+import CreatePharmacist from './pages/Pharmacist/CreatePharmacist';
+import Admin from './pages/Admin/Admin';
+import Pharmacists from './pages/Pharmacist/AllPharmacist';
+import AllSellers from './pages/Seller/AllSeller';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,14 +36,20 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/createproduct" element={<CreateProduct />} />
+          <Route path="/createProduct" element={<CreateProduct />} />
           <Route path="/doctors" element={<Doctors />} />
-          <Route path="/doctors/create" element={<CreateDocter />} />
+          <Route path="/seller" element={<Sellers />} />
+          <Route path="/pharmacist" element={<Pharmacists />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/doctors/create" element={<CreateDoctor />} />
+          <Route path="/seller/create" element={<CreateSeller />} />
+          <Route path="/pharmacist/create" element={<CreatePharmacist />} />
+          <Route path="/admin/create" element={<CreateAdmin />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/orders/details" element={<OrderDetails />} />
-          <Route path="/sellers" element={<Sellers />} />
+          <Route path="/sellers" element={<AllSellers />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/test" element={<Test />} />
           <Route path="/categories" element={<Categories />} />

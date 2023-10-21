@@ -87,9 +87,21 @@ export const Navbar = ({ handleMouseEnter, handleMouseLeave }) => {
         <img src={order} className="navbar-icon" alt="logo" />
         <p>Orders</p>
       </div>
+      <Link className="menu-button" to={'/sellers'}>
+        <img src={order} className="navbar-icon" alt="logo" />
+        <p>Seller</p>
+      </Link>
       <Link className="menu-button" to={'/doctors'}>
         <img src={order} className="navbar-icon" alt="logo" />
-        <p>Doctors </p>
+        <p>Doctors</p>
+      </Link>
+      <Link className="menu-button" to={'/pharmacist'}>
+        <img src={order} className="navbar-icon" alt="logo" />
+        <p>Pharmacist</p>
+      </Link>
+      <Link className="menu-button" to={'/admin'}>
+        <img src={order} className="navbar-icon" alt="logo" />
+        <p>Admin</p>
       </Link>
       <div className="menu-button">
         <img src={profile} className="navbar-icon" alt="logo" />

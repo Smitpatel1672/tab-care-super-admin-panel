@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, CardBody } from "reactstrap";
 import { StarIcon, ThreeDotsSvg } from "../svgIcons/commonSvgIcons";
 
-export default function CommonDocter() {
+export default function ProfileCard() {
     return (
         <>
             {" "}

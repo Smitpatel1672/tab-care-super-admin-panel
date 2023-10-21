@@ -24,7 +24,7 @@ export default function Layout() {
             />
             <div className={containerClassName}>
                 <Header />
-                <div className='main_conatiner'>
+                <div className='main_container'>
                     <Outlet />
                 </div>
             </div>
