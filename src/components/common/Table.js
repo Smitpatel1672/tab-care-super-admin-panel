@@ -1,21 +1,20 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
-
 export default function CommonTable(props) {
     const { data, customClass, responsiveClass, columns } = props
     return (
         <>
-            <div className={responsiveClass + " table-responsive"}>
+            <div className={responsiveClass + " custom_table table-responsive"}>
 
                 <BootstrapTable
                     id="myTable"
-                    classes={customClass + " small table-sm"}
-                    striped={true}
+                    classes={customClass + "  small table-sm"}
+                    striped={false}
                     bootstrap4
                     keyField="id"
                     data={data}
                     columns={columns}
-                    bordered={true}
+                    bordered={false}
                 />
             </div>
 

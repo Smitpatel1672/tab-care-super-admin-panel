@@ -1,5 +1,7 @@
 @import url('./styles/style.css');
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('./styles/Table.css');
+@import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 body {
   margin: 0;
@@ -62,4 +64,8 @@ code {
 .text-muted {
   color: #878A99 !important;
   font-weight: 400;
+}
+
+.text-primary {
+  color: #405189 !important;
 }

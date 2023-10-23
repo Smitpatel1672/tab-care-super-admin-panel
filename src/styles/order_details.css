@@ -1,26 +1,26 @@
-.order-details{
+.order-details {
     display: flex;
 }
 
-.order-details-body{
+.order-details-body {
     margin-top: 20px;
     width: 90%;
 }
 
-.order-details-body .title{
+.order-details-body .title {
     margin-left: 25px;
     margin-top: 10px;
     font-size: 1.6vmax;
 }
 
-.order-details-body .order-details-cards{
+.order-details-body .order-details-cards {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     display: flex;
 }
 
-.order-details-body .order-details-card{
+.order-details-body .order-details-card {
     margin-bottom: 20px;
     background-color: white;
     box-shadow: 0px 1px 2px rgba(56, 65, 74, 0.14902);
@@ -31,15 +31,15 @@
     /*display: flex */
 }
 
-.order-details-body .order-details-card-small{
+.order-details-body .order-details-card-small {
     margin-bottom: 20px;
     background-color: white;
     box-shadow: 0px 1px 2px rgba(56, 65, 74, 0.14902);
     border-radius: 4px;
-    max-width: 20vw; 
+    max-width: 20vw;
 }
 
-.order-details-body .order-details-card .order-id{
+.order-details-body .order-details-card .order-id {
     padding: 20px;
     padding-bottom: 10px;
     font-size: 1.2vmax;
@@ -48,12 +48,12 @@
 .order-details-body .order-details-card table {
     width: 100%;
     border-collapse: collapse;
-     table-layout: fixed;
+    table-layout: fixed;
     /*position: relative;
     box-sizing: border-box; */
 }
-  
-.order-details-body .order-details-card th{
+
+.order-details-body .order-details-card th {
     margin: 0;
     background-color: grey;
     color: white;
@@ -71,14 +71,14 @@
     width: 100%;
 } */
 
-.order-details-body .order-details-card tr td{
+.order-details-body .order-details-card tr td {
     overflow-wrap: break-word;
     text-overflow: ellipsis;
     font-size: 1vmax;
     text-align: center;
 }
 
-.order-details-body .order-details-card tr td p{
+.order-details-body .order-details-card tr td p {
     margin: 0;
     padding: 5px;
     background-color: rgba(247, 184, 75, 0.098);
@@ -90,58 +90,58 @@
     text-align: center;
 }
 
-.order-details-body .order-details-card tr td img{
+.order-details-body .order-details-card tr td img {
     margin: 10px 0px;
     cursor: pointer;
 }
 
-.dashed-divider{
+.dashed-divider {
     border: 1px dashed #EBEBEB;
 }
 
-.pricing{
+.pricing {
     display: flex;
     justify-content: end;
 }
 
-.pricing-details{
+.pricing-details {
     margin: 20px;
     margin-top: 10px;
     width: 250px;
 }
 
-.pricing-details-title-value{
+.pricing-details-title-value {
     display: flex;
     justify-content: space-between;
     font-size: 1vmax;
 }
 
-.pricing-details-title-value .pricing-details-title{
+.pricing-details-title-value .pricing-details-title {
     color: #32383E;
     font-weight: 600;
 }
 
-.pricing-details-title-value .pricing-details-value{
+.pricing-details-title-value .pricing-details-value {
     color: #32383E;
     font-weight: 500;
 }
 
-.pricing-details-title-value .pricing-details-total{
+.pricing-details-title-value .pricing-details-total {
     color: #32383E;
     font-weight: 700;
 }
 
-.order-details-card-heading{
+.order-details-card-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.order-details-card-heading .actions{
+.order-details-card-heading .actions {
     display: flex;
 }
 
-.change-address{
+.change-address {
     margin: 20px;
     margin-right: 5px;
     padding: 5px;
@@ -151,12 +151,12 @@
     height: 20px;
 }
 
-.order-details-card-heading .change-address p{
+.order-details-card-heading .change-address p {
     margin: 0;
     padding: 0;
 }
 
-.cancel-order{
+.cancel-order {
     margin: 20px;
     margin-left: 5px;
     padding: 5px;
@@ -166,52 +166,55 @@
     color: #F06548;
 }
 
-.order-details-card-heading .cancel-order p{
+.order-details-card-heading .cancel-order p {
     margin: 0;
     padding: 0;
 }
 
-.statuses{
+.statuses {
     margin: 20px;
 }
 
-.status-icon-and-text{
+.status-icon-and-text {
     margin: 0;
     display: flex;
     align-items: center;
 }
 
-.status-icon-and-text p{
+.status-icon-and-text p {
     margin: 0;
     margin-top: 0px;
     margin-left: 10px;
     width: 70vw;
 }
 
-.statuses .status-icon{
+.statuses .status-icon {
     margin-top: 0px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding: 10px;
     background-color: #405189;
     border-radius: 100%;
     width: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.status-icon img{
+.status-icon img {
     height: 20px;
     width: 20px;
 }
 
-.dashed-divider-and-status-details{
-    margin-left: 38px;
+.dashed-divider-and-status-details {
+    margin-left: 20px;
     display: flex;
 }
 
-.dashed-divider-and-status-details .status-details{
+.dashed-divider-and-status-details .status-details {
     margin-left: 30px;
 }
 
-.dashed-divider-and-status-details .status-details .status-details-heading{
+.dashed-divider-and-status-details .status-details .status-details-heading {
     margin-top: 0px;
     margin-bottom: 0px;
 }

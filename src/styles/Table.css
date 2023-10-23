@@ -1,0 +1,216 @@
+.custom_table table.table,
+.react-bootstrap-table table.table {
+    border: 0;
+    margin: 0;
+}
+
+.custom_table table.table thead {
+    position: sticky;
+    top: -1px;
+    background: #000;
+}
+
+.table-bordered>:not(caption)>* {
+    border: 0px !important;
+}
+
+.custom_table table.table thead tr th {
+    white-space: pre;
+    color: #878A99;
+    border: 0;
+    padding: 0.8rem 0.25rem;
+    border-top: 0px solid transparent;
+    border-bottom: 00px solid #667085 !important;
+    font-weight: normal;
+    letter-spacing: 0.4px;
+
+    padding-right: 1.6rem;
+    line-height: normal;
+    background: #EBEBEB;
+}
+
+.custom_table table.table thead tr th.sortable span::after {
+    content: '\2191\2193';
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    bottom: 0.9em;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 13px;
+    height: 17px;
+    font-family: 'FontAwesome free';
+    padding-left: 0.5rem;
+}
+
+.custom_table table.table thead tr th.sortable span.asc::after {
+    content: '\2191';
+}
+
+.custom_table table.table thead tr th.sortable span.desc::after {
+    content: '\2193';
+}
+
+.custom_table .react-bootstrap-table th span:before {
+    display: none;
+}
+
+.custom_table .table-sm>:not(caption)>*>* {
+    padding: 0.8rem 0.25rem;
+    color: #32383E;
+    border-color: #D5DAF1 !important;
+}
+
+/* .table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: transparent !important;
+} */
+
+/* .table>:not(caption)>*>* {} */
+
+/* 
+.custom_table table.table thead tr th:first-child {
+    border-radius: 10px 0 0 0;
+    border-right: 1px solid lighten(#667085, 10%);
+}
+
+.custom_table table.table thead tr th:last-child {
+    border-radius: 0 10px 0 0;
+    border-right: none;
+}
+
+
+.custom_table table.table thead tr th .custom-control {
+    text-align: center;
+    z-index: 0;
+}
+
+.custom_table table.table thead tr th .custom-control.custom-checkbox {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.custom_table table.table thead tr th .custom-control.custom-checkbox .custom-control-input {
+    width: 1rem;
+    height: 1rem;
+    z-index: 1;
+}
+
+.custom_table table.table thead tr th .custom-control.custom-checkbox .custom-control-input:focus {
+    box-shadow: none;
+}
+
+.custom_table table.table thead tr th .custom-control.custom-checkbox .custom-control-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+}
+
+
+.custom_table table.table thead tr th.sortable .custom-control-input:checked~.custom-control-label::after {
+    filter: brightness(0) invert(0);
+}
+
+.custom_table table.table thead tr th.upload_col {
+    width: 25rem;
+}
+
+.custom_table table.table tbody tr:hover,
+.custom_table table.table tbody tr:focus {
+    background-color: lighten(#667085, 70%) !important;
+}
+
+.custom_table table.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.custom_table table.table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+.custom_table table.table tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+.custom_table table.table tbody tr td {
+    vertical-align: middle;
+    padding: 0.3rem 0.4rem;
+    color: #667085;
+    box-shadow: none;
+}
+
+.custom_table table.table tbody tr td .first_name_td p {
+    color: #667085;
+}
+
+.custom_table table.table tbody tr td .descriptionTable {
+    width: 80ch;
+}
+
+.custom_table table.table tbody tr td .tbl_action {
+    display: flex;
+}
+
+.custom_table table.table tbody tr td .custom-control {
+    text-align: center;
+    z-index: 0;
+}
+
+.custom_table table.table tbody tr td .custom-control button:focus {
+    box-shadow: none;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox {
+    margin: 0 auto;
+    display: block;
+    width: 1rem;
+    min-height: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox .custom-control-input {
+    width: 1rem;
+    height: 1rem;
+    z-index: 1;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox .custom-control-input:focus {
+    box-shadow: none;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox .custom-control-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox .custom-control-label::before {
+    left: 0;
+    top: 0;
+    box-shadow: none;
+}
+
+.custom_table table.table tbody tr td .custom-control.custom-checkbox .custom-control-label::after {
+    left: 0;
+    top: 0;
+}
+
+.custom_table table.table tbody tr td .custom-control-input:checked~.custom-control-label::before {
+    background-color: #ffffff;
+}
+
+.custom_table table.table tbody tr td .custom-control-input:checked~.custom-control-label::after {
+    filter: brightness(0) invert(0);
+}
+
+.custom_table table.table tbody tr:nth-child(even) {
+    background-color: #e7f4fa;
+} */
